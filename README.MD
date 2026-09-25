@@ -12,6 +12,25 @@ cdf.exe はコンソールベースのフォルダ選択ツールです。
 - D : ドライブ選択（フォルダ選択モード時）
 - Esc : 戻る／終了
 
+powershellで使う時はPOFILEに以下のコードを追加してください。
+
+```
+
+function cdf {
+    [Console]::OutputEncoding =
+        [System.Text.UTF8Encoding]::new($false)
+
+    $selected = & "C:\Tools\cdf.exe" @args
+
+    if ($LASTEXITCODE -eq 0 -and $selected) {
+        Set-Location -LiteralPath $selected
+    }
+}
+```
+- 実行ファイルのパスは実際の場所に書き換えること<br>
+
+- cmd.exe時はクリップボードにパスがコピーされているので "cd " の後にペースト。
+
 ##実行例
 - cdf.exe
 - cdf.exe C:\\path\\to\\start\\directory
@@ -28,5 +47,4 @@ This software is released under the MIT License, see LICENSE
 
 bry-ful(Hiroshi Furuhashi)<br>
 twitter:[bryful](https://twitter.com/bryful)<br>
-Mail: bryful@gmail.com<br>
 
