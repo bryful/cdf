@@ -31,11 +31,11 @@ function cdf {
 
 - cmd.exe時はクリップボードにパスがコピーされているので "cd " の後にペースト。
 
-##実行例
+## 実行例
 - cdf.exe
 - cdf.exe C:\\path\\to\\start\\directory
 
-##注意
+## 注意
 - Windows 環境専用（コンソール API を使用）。
 - 実行時の出力や挙動はバイナリに依存するため、実行後に動作を確認してください。
 
